@@ -22,4 +22,8 @@ class Registro: UIViewController {
     
     @IBAction func registrar(_ sender: UIButton) {
     }
+    
+    @IBAction func cancelar(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 }

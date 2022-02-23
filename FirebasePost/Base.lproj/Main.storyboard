@@ -100,7 +100,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Registro" id="akO-FE-AK5">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="kMh-g0-JGM"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="kMh-g0-JGM">
+                                            <connections>
+                                                <action selector="cancelar:" destination="pEW-a9-Zbi" id="9Y5-EM-qjA"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
