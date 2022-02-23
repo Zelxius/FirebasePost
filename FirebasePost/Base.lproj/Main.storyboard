@@ -43,15 +43,48 @@
                                 <buttonConfiguration key="configuration" style="plain" title="ENTRAR">
                                     <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="entrar:" destination="lNx-bO-xkg" eventType="touchUpInside" id="AZt-kw-1am"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Ah-K3-biZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="correo" destination="n6T-gH-DUF" id="SWR-We-U8u"/>
+                        <outlet property="password" destination="iKi-Q8-Uf7" id="0cV-Sk-cOw"/>
+                        <segue destination="ixu-kP-QpM" kind="show" identifier="entrar" id="lax-04-6w0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aDI-cB-pJ3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-310.14492753623193" y="111.83035714285714"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="zQl-xC-dkR">
+            <objects>
+                <viewController id="ixu-kP-QpM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kGa-hw-aSW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="24E-gw-Bu1">
+                                <rect key="frame" x="0.0" y="14" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Inicio" id="mtB-KJ-Jrb"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="V6r-cT-TeJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="tkl-eo-w0e"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="329-pb-DAG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="549" y="112"/>
         </scene>
     </scenes>
     <resources>
