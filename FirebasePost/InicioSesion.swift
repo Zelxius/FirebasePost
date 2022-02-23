@@ -16,6 +16,11 @@ class InicioSesion: UIViewController {
 
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        sesionActiva()
+    }
+    
     @IBAction func entrar(_ sender: UIButton) {
         guard let email = correo.text else {return}
         guard let pass = password.text else {return}
@@ -33,6 +38,17 @@ class InicioSesion: UIViewController {
                 }else{
                     print("Error en el codigo")
                 }
+            }
+        }
+    }
+    
+    func sesionActiva(){
+        Auth.auth().addStateDidChangeListener { (auth, error) in
+            if error == nil {
+                print("No estamos logeados")
+            }else{
+                print("Si estamos logeados")
+                self.performSegue(withIdentifier: "entrar", sender: self)
             }
         }
     }
