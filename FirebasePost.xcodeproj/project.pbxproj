@@ -68,11 +68,11 @@
 				5D40AF7127C6AAD100801B4C /* AppDelegate.swift */,
 				5D40AF7327C6AAD100801B4C /* SceneDelegate.swift */,
 				5D40AF7727C6AAD100801B4C /* Main.storyboard */,
+				5D40AF8727C6C4D500801B4C /* InicioSesion.swift */,
 				5D40AF7A27C6AADB00801B4C /* Assets.xcassets */,
 				5D40AF7C27C6AADB00801B4C /* LaunchScreen.storyboard */,
 				5D40AF7F27C6AADB00801B4C /* Info.plist */,
 				5D40AF8527C6AD2100801B4C /* GoogleService-Info.plist */,
-				5D40AF8727C6C4D500801B4C /* InicioSesion.swift */,
 			);
 			path = FirebasePost;
 			sourceTree = "<group>";
