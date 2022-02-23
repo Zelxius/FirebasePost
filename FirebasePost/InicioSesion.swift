@@ -17,6 +17,21 @@ class InicioSesion: UIViewController {
     }
     
     @IBAction func entrar(_ sender: UIButton) {
+        
     }
     
+    func iniciarSesion(correo: String, pass: String){
+        Auth.auth().signIn(withEmail: correo, password: pass) { (user, error) in
+            if user != nil {
+                print("Entro")
+                self.performSegue(withIdentifier: "entrar", sender: self)
+            }else{
+                if let error = error?.localizedDescription {
+                    print("Error en firebase", error)
+                }else{
+                    print("Error en el codigo")
+                }
+            }
+        }
+    }
 }
