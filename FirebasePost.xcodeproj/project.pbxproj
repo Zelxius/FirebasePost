@@ -14,6 +14,7 @@
 		5D40AF7E27C6AADB00801B4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D40AF7C27C6AADB00801B4C /* LaunchScreen.storyboard */; };
 		5D40AF8627C6AD2100801B4C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D40AF8527C6AD2100801B4C /* GoogleService-Info.plist */; };
 		5D40AF8827C6C4D500801B4C /* InicioSesion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D40AF8727C6C4D500801B4C /* InicioSesion.swift */; };
+		5D40AF8A27C6EB6900801B4C /* Inicio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D40AF8927C6EB6800801B4C /* Inicio.swift */; };
 		A2715C16D3449D82F6D398F8 /* Pods_FirebasePost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ECE5BB563857CFC7E00321D /* Pods_FirebasePost.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		5D40AF7F27C6AADB00801B4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5D40AF8527C6AD2100801B4C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5D40AF8727C6C4D500801B4C /* InicioSesion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InicioSesion.swift; sourceTree = "<group>"; };
+		5D40AF8927C6EB6800801B4C /* Inicio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inicio.swift; sourceTree = "<group>"; };
 		95B4BD10CBE758D82C26952F /* Pods-FirebasePost.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebasePost.release.xcconfig"; path = "Target Support Files/Pods-FirebasePost/Pods-FirebasePost.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,8 +69,9 @@
 			children = (
 				5D40AF7127C6AAD100801B4C /* AppDelegate.swift */,
 				5D40AF7327C6AAD100801B4C /* SceneDelegate.swift */,
-				5D40AF7727C6AAD100801B4C /* Main.storyboard */,
 				5D40AF8727C6C4D500801B4C /* InicioSesion.swift */,
+				5D40AF8927C6EB6800801B4C /* Inicio.swift */,
+				5D40AF7727C6AAD100801B4C /* Main.storyboard */,
 				5D40AF7A27C6AADB00801B4C /* Assets.xcassets */,
 				5D40AF7C27C6AADB00801B4C /* LaunchScreen.storyboard */,
 				5D40AF7F27C6AADB00801B4C /* Info.plist */,
@@ -212,6 +215,7 @@
 			files = (
 				5D40AF8827C6C4D500801B4C /* InicioSesion.swift in Sources */,
 				5D40AF7227C6AAD100801B4C /* AppDelegate.swift in Sources */,
+				5D40AF8A27C6EB6900801B4C /* Inicio.swift in Sources */,
 				5D40AF7427C6AAD100801B4C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

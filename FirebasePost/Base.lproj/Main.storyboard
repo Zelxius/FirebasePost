@@ -81,10 +81,10 @@
             </objects>
             <point key="canvasLocation" x="-310.14492753623193" y="111.83035714285714"/>
         </scene>
-        <!--View Controller-->
+        <!--Inicio-->
         <scene sceneID="zQl-xC-dkR">
             <objects>
-                <viewController id="ixu-kP-QpM" sceneMemberID="viewController">
+                <viewController id="ixu-kP-QpM" customClass="Inicio" customModule="FirebasePost" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kGa-hw-aSW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -93,7 +93,13 @@
                                 <rect key="frame" x="0.0" y="14" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Inicio" id="mtB-KJ-Jrb"/>
+                                    <navigationItem title="Inicio" id="mtB-KJ-Jrb">
+                                        <barButtonItem key="leftBarButtonItem" title="Salir" id="MDb-Qo-Uww">
+                                            <connections>
+                                                <action selector="salir:" destination="ixu-kP-QpM" id="dUH-Q5-Wn6"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                         </subviews>
