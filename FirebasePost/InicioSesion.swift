@@ -17,7 +17,9 @@ class InicioSesion: UIViewController {
     }
     
     @IBAction func entrar(_ sender: UIButton) {
-        
+        guard let email = correo.text else {return}
+        guard let pass = password.text else {return}
+        iniciarSesion(correo: email, pass: pass)
     }
     
     func iniciarSesion(correo: String, pass: String){
