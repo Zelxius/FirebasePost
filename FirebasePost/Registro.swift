@@ -40,10 +40,31 @@ class Registro: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         present(imagePicker, animated: true, completion: nil)
     }
     
+    func redimensionarImagen(image: UIImage, targetSize: CGSize) -> UIImage {
+        let size = image.size
+        
+        let widthRatio = targetSize.width / size.width
+        let heigthRatio = targetSize.height / size.height
+        
+        var newSize: CGSize
+        if widthRatio > heigthRatio {
+            newSize = CGSize(width: size.width * heigthRatio, height: size.height * heigthRatio)
+        }else{
+            newSize = CGSize(width: size.width * widthRatio, height: size.height * widthRatio)
+        }
+        let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
+        
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        image.draw(in: rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage!
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true, completion: nil)
         let imagenTomada = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
-        perfil = imagenTomada
+        perfil = redimensionarImagen(image: imagenTomada!, targetSize: CGSize(width: 100.0, height: 100.0))
         imagenPerfil.image = perfil
     }
     
