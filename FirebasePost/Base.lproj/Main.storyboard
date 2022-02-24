@@ -176,6 +176,7 @@
                                                 <action selector="salir:" destination="ixu-kP-QpM" id="dUH-Q5-Wn6"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wCT-Sg-ms7"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

@@ -17,15 +17,64 @@ class Registro: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     @IBOutlet weak var imagenPerfil: UIImageView!
     
     var perfil : UIImage!
+    var ref: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        ref = Database.database().reference()
         let addimage = UITapGestureRecognizer(target: self, action: #selector(agregarImagen))
         imagenPerfil.addGestureRecognizer(addimage)
     }
     
     @IBAction func registrar(_ sender: UIButton) {
+        
+        guard let email = correo.text else { return }
+        guard let pass = password.text else { return }
+        Auth.auth().createUser(withEmail: email, password: pass) { (user, error) in
+            if user != nil {
+                print("Usuario creado")
+                self.guardarUsuario()
+            }else{
+                if let error = error?.localizedDescription{
+                    print("Error en firebase", error)
+                }else{
+                    print("Error de codigo")
+                }
+            }
+        }
+    }
+    
+    func guardarUsuario(){
+        // guardar en storage
+        let storage = Storage.storage().reference()
+        let nombreImagen = UUID()
+        let directorio = storage.child("imagenesPerfil/\(nombreImagen)")
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/png"
+        
+        directorio.putData(perfil.pngData()!, metadata: metadata) { (data, error) in
+            if error == nil {
+                print("Se guardo la imagen")
+            }else{
+                if let error = error?.localizedDescription{
+                    print("Error en firebase al cargar imagen", error)
+                }else{
+                    print("Error de codigo")
+                }
+            }
+        }
+        
+        //guardar en database
+        guard let id = Auth.auth().currentUser?.uid else { return }
+        guard let email = Auth.auth().currentUser?.email else { return }
+        guard let user = usuario.text  else { return }
+        let campos = ["user":user,
+                      "correo": email,
+                      "idUser": id,
+                      "imagenPerfil": String(describing: directorio) ]
+        ref.child("users").child(id).setValue(campos)
+        dismiss(animated: true, completion: nil)
+        
     }
     
     @IBAction func cancelar(_ sender: Any) {
