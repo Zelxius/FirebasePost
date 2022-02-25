@@ -7,6 +7,8 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseStorage
+import FirebaseDatabase
 class Inicio: UIViewController {
 
     @IBOutlet var vistaPost: UIView!
@@ -14,15 +16,33 @@ class Inicio: UIViewController {
     
     let customView = UIView()
     
+    var userList = [Users]()
+    var ref: DatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = Database.database().reference()
+        
         vistaPost.layer.cornerRadius = 10
+        selectUser()
     }
     
     @IBAction func guardarPost(_ sender: UIBarButtonItem) {
         
         
     }
+    
+    func selectUser(){
+        guard let userId = Auth.auth().currentUser?.uid else { return }
+        ref.child("users").child(userId).observeSingleEvent(of: .value) { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            let username = value?["user"] as? String ?? ""
+            let imagenPerfil = value?["imagenPerfil"] as? String ?? ""
+            let user = Users(user: username, fotoPerfil: imagenPerfil)
+            self.userList.append(user)
+        }
+    }
+    
     @IBAction func agregarPost(_ sender: UIBarButtonItem) {
         
         let w = self.view.frame.width
