@@ -176,7 +176,11 @@
                                                 <action selector="salir:" destination="ixu-kP-QpM" id="dUH-Q5-Wn6"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wCT-Sg-ms7"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wCT-Sg-ms7">
+                                            <connections>
+                                                <action selector="agregarPost:" destination="ixu-kP-QpM" id="8xg-zG-zKq"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -185,14 +189,56 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="tkl-eo-w0e"/>
+                    <connections>
+                        <outlet property="texto" destination="3db-HJ-khB" id="Rkk-sf-XBN"/>
+                        <outlet property="vistaPost" destination="ihb-xg-OIt" id="sfE-5e-5kI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="329-pb-DAG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="ihb-xg-OIt">
+                    <rect key="frame" x="0.0" y="0.0" width="280" height="300"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9A3-xA-PZE">
+                            <rect key="frame" x="0.0" y="0.0" width="280" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem title="Agregar" id="Mfc-wp-0l6">
+                                    <barButtonItem key="leftBarButtonItem" title="Item" systemItem="stop" id="y8v-My-DYQ">
+                                        <connections>
+                                            <action selector="cancelarPost:" destination="ixu-kP-QpM" id="SHM-Bj-ipW"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem key="rightBarButtonItem" systemItem="save" id="5No-7a-R8q">
+                                        <connections>
+                                            <action selector="guardarPost:" destination="ixu-kP-QpM" id="AwV-6y-DXk"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3db-HJ-khB">
+                            <rect key="frame" x="0.0" y="44" width="280" height="256"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </string>
+                            <color key="textColor" systemColor="labelColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="oVL-NR-z8P"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="1194" y="132"/>
         </scene>
     </scenes>
     <resources>
         <image name="images" width="91.666664123535156" height="61"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
