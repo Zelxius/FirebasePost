@@ -14,9 +14,12 @@ class Inicio: UIViewController {
     @IBOutlet var vistaPost: UIView!
     @IBOutlet weak var texto: UITextView!
     
+    @IBOutlet weak var tabla: UITableView!
     let customView = UIView()
     
     var userList = [Users]()
+    var postList = [Posts]()
+    
     var ref: DatabaseReference!
     
     override func viewDidLoad() {
@@ -56,6 +59,26 @@ class Inicio: UIViewController {
             let imagenPerfil = value?["imagenPerfil"] as? String ?? ""
             let user = Users(user: username, fotoPerfil: imagenPerfil)
             self.userList.append(user)
+        }
+    }
+    
+    func selectPosts() {
+        ref.child("posts").observe(DataEventType.value) { (snapshot) in
+            self.postList.removeAll()
+            for item in snapshot.children.allObjects as! [DataSnapshot] {
+                let valores = item.value as? [String: AnyObject]
+                let username = valores!["user"] as? String ?? ""
+                let imagenPerfil = valores!["imagenPerfil"] as? String ?? ""
+                let texto = valores!["texto"] as? String ?? ""
+                let idUser = valores!["idUser"] as? String ?? ""
+                let idPost = valores!["idPost"] as? String ?? ""
+                
+                let post = Posts(user: username, fotoPerfil: imagenPerfil, texto: texto, idUser: idUser, idPost: idPost)
+                self.postList.append(post)
+            }
+        }
+        DispatchQueue.main.async {
+            self.tabla.reloadData()
         }
     }
     

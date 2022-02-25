@@ -166,9 +166,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="24E-gw-Bu1">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="24E-gw-Bu1">
                                 <rect key="frame" x="0.0" y="14" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="VlE-nH-pZe"/>
+                                </constraints>
                                 <items>
                                     <navigationItem title="Inicio" id="mtB-KJ-Jrb">
                                         <barButtonItem key="leftBarButtonItem" title="Salir" id="MDb-Qo-Uww">
@@ -184,12 +186,36 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="uNX-IU-QPp">
+                                <rect key="frame" x="0.0" y="69" width="414" height="739"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="yaY-37-RGr">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yaY-37-RGr" id="XOb-fP-l7y">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="V6r-cT-TeJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uNX-IU-QPp" firstAttribute="top" secondItem="24E-gw-Bu1" secondAttribute="bottom" constant="11" id="2al-SJ-KhJ"/>
+                            <constraint firstItem="24E-gw-Bu1" firstAttribute="leading" secondItem="uNX-IU-QPp" secondAttribute="leading" id="7ED-EV-uY3"/>
+                            <constraint firstItem="24E-gw-Bu1" firstAttribute="top" secondItem="V6r-cT-TeJ" secondAttribute="top" constant="14" id="8F6-Xt-Ix3"/>
+                            <constraint firstItem="24E-gw-Bu1" firstAttribute="leading" secondItem="V6r-cT-TeJ" secondAttribute="leading" id="8bI-YJ-SRe"/>
+                            <constraint firstItem="24E-gw-Bu1" firstAttribute="centerX" secondItem="kGa-hw-aSW" secondAttribute="centerX" id="NC5-P9-RSI"/>
+                            <constraint firstItem="24E-gw-Bu1" firstAttribute="trailing" secondItem="uNX-IU-QPp" secondAttribute="trailing" id="itn-Zn-pzF"/>
+                            <constraint firstItem="uNX-IU-QPp" firstAttribute="bottom" secondItem="V6r-cT-TeJ" secondAttribute="bottom" id="y0F-k0-Ogg"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="tkl-eo-w0e"/>
                     <connections>
+                        <outlet property="tabla" destination="uNX-IU-QPp" id="cVG-Gz-9nA"/>
                         <outlet property="texto" destination="3db-HJ-khB" id="Rkk-sf-XBN"/>
                         <outlet property="vistaPost" destination="ihb-xg-OIt" id="sfE-5e-5kI"/>
                     </connections>
@@ -230,7 +256,7 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="1194" y="132"/>
+            <point key="canvasLocation" x="1192.753623188406" y="131.91964285714286"/>
         </scene>
     </scenes>
     <resources>
