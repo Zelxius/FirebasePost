@@ -9,8 +9,8 @@ import UIKit
 import FirebaseAuth
 import FirebaseStorage
 import FirebaseDatabase
-class Inicio: UIViewController {
-
+class Inicio: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     @IBOutlet var vistaPost: UIView!
     @IBOutlet weak var texto: UITextView!
     
@@ -24,10 +24,25 @@ class Inicio: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ref = Database.database().reference()
         
+        tabla.delegate = self
+        tabla.dataSource = self
+        ref = Database.database().reference()
         vistaPost.layer.cornerRadius = 10
+        
         selectUser()
+        selectPosts()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return postList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tabla.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let post = postList[indexPath.row]
+        cell.textLabel?.text = post.texto
+        return cell
     }
     
     @IBAction func guardarPost(_ sender: UIBarButtonItem) {
@@ -75,10 +90,11 @@ class Inicio: UIViewController {
                 
                 let post = Posts(user: username, fotoPerfil: imagenPerfil, texto: texto, idUser: idUser, idPost: idPost)
                 self.postList.append(post)
+                print(texto)
             }
-        }
-        DispatchQueue.main.async {
-            self.tabla.reloadData()
+            DispatchQueue.main.async {
+                self.tabla.reloadData()
+            }
         }
     }
     
