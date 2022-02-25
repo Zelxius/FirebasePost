@@ -25,6 +25,7 @@ class Inicio: UIViewController {
         self.view.addSubview(vistaPost)
     }
     @IBAction func cancelarPost(_ sender: UIBarButtonItem) {
+        vistaPost.removeFromSuperview()
     }
     
     
