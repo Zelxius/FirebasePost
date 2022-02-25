@@ -28,6 +28,22 @@ class Inicio: UIViewController {
     }
     
     @IBAction func guardarPost(_ sender: UIBarButtonItem) {
+        guard let idPost = ref.childByAutoId().key else { return }
+        guard let idUser = Auth.auth().currentUser?.uid else { return }
+        guard let user = userList[0].user else { return }
+        guard let imagenPerfil = userList[0].fotoPerfil else { return }
+        guard let text = texto.text else { return }
+        
+        let campos = ["texto": text,
+                      "user": user,
+                      "imagenPerfil": imagenPerfil,
+                      "idUser": idUser,
+                      "idPost": idPost]
+        
+        ref.child("posts").child(idPost).setValue(campos)
+        texto.text = ""
+        customView.removeFromSuperview()
+        vistaPost.removeFromSuperview()
         
         
     }
